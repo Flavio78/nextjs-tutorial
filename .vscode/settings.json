@@ -1,0 +1,55 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.list.openMode": "singleClick",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
+  "[html]": {
+    "editor.fontLigatures": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.fontLigatures": false,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.fontLigatures": false,
+  },
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.bracketPairs": true,
+  "debug.toolBarLocation": "docked",
+  "prettier.singleQuote": true,
+  "cSpell.words": [
+    "appspot",
+    "birthdate",
+    "bulma",
+    "burpees",
+    "devkit",
+    "firebaseapp",
+    "Firestore",
+    "jasminewd",
+    "nextauth",
+    "nextjs",
+    "ngrx",
+    "Serializability",
+    "sidenav",
+    "signup",
+    "titlecase",
+    "userid"
+  ],
+  "auto-close-tag.disableOnLanguage": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "markdown.validate.enabled": true,
+  "editor.parameterHints.enabled": true,
+  "editor.stickyScroll.enabled": true,
+}
