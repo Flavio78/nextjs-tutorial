@@ -15,6 +15,8 @@ $ npx create-next-app
 √ Would you like to customize the default import alias? ... No / Yes
 ```
 
+Code from YouTube tutorial [Codevolution](https://www.youtube.com/watch?v=Ql5kyJaYbls&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&index=7)
+
 ## Getting Started
 
 First, run the development server:
