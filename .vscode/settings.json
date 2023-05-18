@@ -20,6 +20,7 @@
   },
   "[markdown]": {
     "editor.fontLigatures": false,
+    "files.trimTrailingWhitespace": false
   },
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.guides.bracketPairs": true,
@@ -43,13 +44,11 @@
     "titlecase",
     "userid"
   ],
-  "auto-close-tag.disableOnLanguage": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-  ],
   "markdown.validate.enabled": true,
   "editor.parameterHints.enabled": true,
   "editor.stickyScroll.enabled": true,
+  "typescript.autoClosingTags": false,
+  "javascript.autoClosingTags": false,
+  "html.autoClosingTags": true,
+  "files.trimTrailingWhitespace": true,
 }
