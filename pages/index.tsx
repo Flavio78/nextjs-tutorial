@@ -7,9 +7,10 @@ const Home = () => {
     router.push('/product');
   };
   return (
-    <Link href="/users" prefetch={true}>
-      Users
-    </Link>
+    <div>
+      <Link href="/users">Users</Link>
+      <Link href="/posts">Posts</Link>
+    </div>
   );
 };
 
