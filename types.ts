@@ -11,7 +11,7 @@ export type User = {
   company: Company;
 };
 
-export type Address = {
+type Address = {
   street: string;
   suite: string;
   city: string;
@@ -19,12 +19,12 @@ export type Address = {
   geo: Geo;
 };
 
-export type Geo = {
+type Geo = {
   lat: string;
   lng: string;
 };
 
-export type Company = {
+type Company = {
   name: string;
   catchPhrase: string;
   bs: string;
@@ -38,3 +38,12 @@ export interface Post {
   title: string;
   body: string;
 }
+
+export type Products = Product[];
+
+export type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+};
