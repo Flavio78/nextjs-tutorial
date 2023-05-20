@@ -1,3 +1,4 @@
+import User from '@/components/user';
 import { Users } from '@/types';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 
@@ -10,10 +11,7 @@ const UserList = ({ users }: Props) => {
     <div>
       <h1>List of Users</h1>
       {users.map((user) => (
-        <div key={user.id}>
-          <p>{user.name}</p>
-          <p>{user.email}</p>
-        </div>
+        <User key={user.id} user={user} />
       ))}
     </div>
   );
