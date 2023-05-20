@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Collega a Chrome",
+            "name": "Attach to Chrome",
             "port": 9222,
             "request": "attach",
             "type": "chrome",
@@ -15,24 +15,24 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Avvia Chrome",
+            "name": "Launch Chrome",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
         },
         {
-            "name": "Next.js: debug server-side",
+            "name": "Next.js: server-side",
             "type": "node-terminal",
             "request": "launch",
             "command": "npm run dev"
         },
         {
-            "name": "Next.js: debug client-side",
+            "name": "Next.js: client-side",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:3000"
         },
         {
-            "name": "Next.js: debug full stack",
+            "name": "Next.js: full stack",
             "type": "node-terminal",
             "request": "launch",
             "command": "npm run dev",
