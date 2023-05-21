@@ -47,3 +47,12 @@ export type Product = {
   price: number;
   description: string;
 };
+
+export type Articles = Article[];
+
+export type Article = {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+};

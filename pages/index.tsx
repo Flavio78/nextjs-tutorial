@@ -11,6 +11,7 @@ const Home = () => {
       <Link href="/users">Users</Link>
       <Link href="/posts">Posts</Link>
       <Link href="/products">Products</Link>
+      <Link href="/news">News</Link>
     </div>
   );
 };
