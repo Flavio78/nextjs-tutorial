@@ -39,8 +39,11 @@ interface Params extends ParsedUrlQuery {
 export const getServerSideProps: GetServerSideProps<
   ArticleListByCategoryProps,
   Params
-> = async ({ params }) => {
+> = async ({ params, req, res, query }) => {
   try {
+    console.log('query', query);
+    console.log('req.headers.cookie', req.headers.cookie);
+    res.setHeader('Set-Cookie', ['name=MyName']);
     const { category } = params!;
     const response = await fetch(
       `http://localhost:4000/news?category=${category}`

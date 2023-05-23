@@ -56,3 +56,10 @@ export type Article = {
   description: string;
   category: string;
 };
+
+export type Dashboard = {
+  posts: number;
+  likes: number;
+  followers: number;
+  following: number;
+};
