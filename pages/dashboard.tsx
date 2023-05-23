@@ -6,25 +6,31 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [dashboardData, setDashboardData] = useState<Dashboard | null>(null);
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
+    const abortController = new AbortController();
     setIsLoading(true);
-    fetch('http://localhost:4000/dashboard', { signal: signal })
-      .then((response) => response.json())
-      .then((data) => {
-        setDashboardData(data);
-        setIsLoading(false);
-      })
-      .catch((err: Error) => {
-        if (err.name === 'AbortError') {
-          console.log('successfully aborted');
-        } else {
-          // handle error
+    fetch('http://localhost:4000/dashboard', { signal: abortController.signal })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
         }
+        return Promise.reject();
+      })
+      .then((data: Dashboard) => {
+        setDashboardData(data);
+      })
+      .catch(() => {
+        if (abortController.signal.aborted) {
+          console.log('The user aborted the request');
+        } else {
+          console.error('The request failed');
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
     return () => {
       // cancel the request before component unmounts
-      controller.abort();
+      // abortController.abort();
     };
   }, []);
 
