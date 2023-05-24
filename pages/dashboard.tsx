@@ -8,37 +8,19 @@ import { useEffect, useState } from 'react';
     https://wanago.io/2022/04/11/abort-controller-race-conditions-react/
 */
 
-const Dashboard = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+const DashboardPage = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [dashboardData, setDashboardData] = useState<Dashboard | null>(null);
+
   useEffect(() => {
-    const abortController = new AbortController();
-    setIsLoading(true);
-    fetch('http://localhost:4000/dashboard', { signal: abortController.signal })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          return Promise.reject();
-        }
-      })
-      .then((data: Dashboard) => {
-        setDashboardData(data);
-      })
-      .catch((err: Error) => {
-        if (abortController.signal.aborted) {
-          console.log('The user aborted the request');
-        } else {
-          console.error('The request failed');
-        }
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-    return () => {
-      // cancel the request before component unmounts
-      abortController.abort();
+    const fetchDashboardData = async () => {
+      const response = await fetch('http://localhost:4000/dashboard');
+      const data = (await response.json()) as Dashboard;
+      setDashboardData(data);
+      setIsLoading(false);
     };
+
+    fetchDashboardData();
   }, []);
 
   return (
@@ -59,4 +41,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

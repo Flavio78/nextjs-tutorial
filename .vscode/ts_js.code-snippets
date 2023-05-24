@@ -30,5 +30,15 @@
 			"};"
 		],
 		"description": "Arrow function with property"
+	},
+	"async arrow function": {
+		"scope": "javascript,typescript, javascriptreact, typescriptreact",
+		"prefix": "asarrfunc",
+		"body": [
+			"const ${1:functionName} = async ( ${2:props} ) => {",
+			"${0: /* write function code here */}",
+			"};"
+		],
+		"description": "Async arrow function with property"
 	}
 }
