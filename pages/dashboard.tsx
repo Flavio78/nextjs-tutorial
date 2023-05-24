@@ -2,6 +2,12 @@ import { Dashboard } from '@/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+/*
+    check with these links of avoid abort
+    https://domtech.hashnode.dev/how-to-avoid-memory-leaks-in-react
+    https://wanago.io/2022/04/11/abort-controller-race-conditions-react/
+*/
+
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [dashboardData, setDashboardData] = useState<Dashboard | null>(null);
@@ -12,13 +18,14 @@ const Dashboard = () => {
       .then((response) => {
         if (response.ok) {
           return response.json();
+        } else {
+          return Promise.reject();
         }
-        return Promise.reject();
       })
       .then((data: Dashboard) => {
         setDashboardData(data);
       })
-      .catch(() => {
+      .catch((err: Error) => {
         if (abortController.signal.aborted) {
           console.log('The user aborted the request');
         } else {
@@ -30,7 +37,7 @@ const Dashboard = () => {
       });
     return () => {
       // cancel the request before component unmounts
-      // abortController.abort();
+      abortController.abort();
     };
   }, []);
 
