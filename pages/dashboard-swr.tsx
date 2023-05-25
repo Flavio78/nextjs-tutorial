@@ -6,7 +6,7 @@ import useSWR from 'swr';
 const fetcher = async (
   url: string,
   signal: AbortSignal
-): Promise<Dashboard | undefined> => {
+): Promise<Dashboard> => {
   try {
     const res = await fetch(url, { signal });
     if (!res.ok) throw new Error('An error occurred while fetching the data.');
@@ -16,6 +16,7 @@ const fetcher = async (
       throw new Error(error);
     }
   }
+  return {} as Dashboard; // Add a default return value
 };
 
 const DashboardSWRPage = () => {
@@ -25,7 +26,7 @@ const DashboardSWRPage = () => {
     data: dashboardData,
     error,
     isLoading,
-  } = useSWR<Dashboard | undefined>('http://localhost:4000/dashboard', (url) =>
+  } = useSWR<Dashboard, Error>('http://localhost:4000/dashboard', (url) =>
     fetcher(url, controller.signal)
   );
   useEffect(() => {
@@ -42,17 +43,19 @@ const DashboardSWRPage = () => {
     <div>
       <Link href="/">Back to home</Link>
       <h2>Dashboard Page with SWR</h2>
-      {error ? (
-        <h2>An error occurred</h2>
-      ) : isLoading || !dashboardData ? (
+      {isLoading ? (
         <h2>Loading ...</h2>
-      ) : (
+      ) : error ? (
+        <h2>{error.message}</h2>
+      ) : dashboardData?.posts ? (
         <div>
           <h2>Posts - {dashboardData!.posts}</h2>
           <h2>Likes - {dashboardData!.likes}</h2>
           <h2>Followers - {dashboardData!.followers}</h2>
           <h2>Following - {dashboardData!.following}</h2>
         </div>
+      ) : (
+        <div></div>
       )}
     </div>
   );
