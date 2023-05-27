@@ -73,3 +73,17 @@ export type Event = {
 };
 
 export type Events = Event[];
+
+export type ApiResponseData = {
+  name: string;
+};
+
+export type Comments = Comment[];
+
+export type CommentBody = {
+  text: string;
+};
+
+export type Comment = CommentBody & {
+  id: number;
+};
