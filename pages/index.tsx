@@ -15,6 +15,9 @@ const Home = () => {
       <Link href="/dashboard-swr">Dashboard</Link>
       <Link href="/events">Events</Link>
       <Link href="/comments">Comments</Link>
+      <Link href="/contact">Contact</Link>
+      <Link href="/about">About</Link>
+      <Link href="/css-in-tsx">Css in Tsx</Link>
     </div>
   );
 };

@@ -1,5 +1,12 @@
+import classes from '../styles/About.module.scss';
+
 const About = () => {
-  return <h1>About Page</h1>;
+  return (
+    <div className={classes['highlight-scss']}>
+      <h2>About Page</h2>
+      <button className="btn btn-primary">Primary</button>
+    </div>
+  );
 };
 
 export default About;
