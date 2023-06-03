@@ -5,6 +5,7 @@ import '@/styles/layout.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
@@ -44,6 +45,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <Head>
+          <title>CodeEvolution</title>
+          <meta name="description" content="Free tutorial" />
+        </Head>
         <Header />
         <Component {...pageProps} />
         <Footer />
