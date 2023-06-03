@@ -1,4 +1,4 @@
-import Footer from '@/components/Footer';
+import Footer from '@/components/layout/Footer';
 import Head from 'next/head';
 import { ReactElement } from 'react';
 import classes from '../styles/About.module.scss';
