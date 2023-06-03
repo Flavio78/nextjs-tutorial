@@ -19,6 +19,7 @@ const Home = () => {
       <Link href="/about">About</Link>
       <Link href="/css-in-tsx">Css in Tsx</Link>
       <Link href="/blog">Blogs</Link>
+      <Link href="/pets">Pets</Link>
     </div>
   );
 };
