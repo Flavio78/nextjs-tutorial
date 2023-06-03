@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export",
     "lint": "next lint",
     "serve-json": "json-server --watch db.json --port 4000"
   },
@@ -22,6 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.62.1",
+    "sharp": "^0.32.1",
     "styled-components": "^5.3.11",
     "swr": "^2.1.5",
     "typescript": "5.0.4"
