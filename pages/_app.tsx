@@ -1,6 +1,11 @@
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import '@/styles/globals.css';
+import '@/styles/layout.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 // Extend the DefaultTheme interface
@@ -19,11 +24,30 @@ const theme: DefaultTheme = {
   },
 };
 
-import type { AppProps } from 'next/app';
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  if (Component.getLayout)
+    return Component.getLayout(
+      <ThemeProvider theme={theme}>
+        <>
+          <Component {...pageProps} />
+        </>
+      </ThemeProvider>
+    );
   return (
     <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
+      <>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </>
     </ThemeProvider>
   );
 }
