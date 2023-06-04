@@ -1,11 +1,10 @@
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 const Home = () => {
-  const router = useRouter();
-  const orderHandler = () => {
-    router.push('/product');
-  };
+  const { data: session, status } = useSession();
+  const loading = status === 'loading';
+  console.log('session, loading', session, loading);
   return (
     <div>
       <Link href="/users">Users</Link>
