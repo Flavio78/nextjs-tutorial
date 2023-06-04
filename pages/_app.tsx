@@ -11,6 +11,8 @@ import { ReactElement, ReactNode } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import '@/components/Navbar.css';
+import type { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
 
 // Extend the DefaultTheme interface
 declare module 'styled-components' {
@@ -32,22 +34,25 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
+type AppPropsWithLayout<P> = AppProps<P> & {
+  Component: NextPageWithLayout<P>;
 };
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({
+  Component,
+  pageProps,
+}: AppPropsWithLayout<{ session: Session }>) {
   if (Component.getLayout)
     return Component.getLayout(
       <ThemeProvider theme={theme}>
-        <>
+        <SessionProvider session={pageProps.session}>
           <Component {...pageProps} />
-        </>
+        </SessionProvider>
       </ThemeProvider>
     );
   return (
     <ThemeProvider theme={theme}>
-      <>
+      <SessionProvider session={pageProps.session}>
         <Head>
           <title>CodeEvolution</title>
           <meta name="description" content="Free tutorial" />
@@ -56,7 +61,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <Header />
         <Component {...pageProps} />
         <Footer />
-      </>
+      </SessionProvider>
     </ThemeProvider>
   );
 }
