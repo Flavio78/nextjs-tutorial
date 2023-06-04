@@ -1,5 +1,4 @@
 import Navbar from '@/components/Navbar';
-import '@/components/Navbar.css';
 import Footer from '@/layout/Footer';
 import Header from '@/layout/Header';
 import '@/styles/globals.css';
@@ -10,6 +9,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
+
+import '@/components/Navbar.css';
 
 // Extend the DefaultTheme interface
 declare module 'styled-components' {
