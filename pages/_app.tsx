@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navbar';
+import '@/components/Navbar.css';
 import Footer from '@/layout/Footer';
 import Header from '@/layout/Header';
 import '@/styles/globals.css';
@@ -49,6 +51,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           <title>CodeEvolution</title>
           <meta name="description" content="Free tutorial" />
         </Head>
+        <Navbar />
         <Header />
         <Component {...pageProps} />
         <Footer />
