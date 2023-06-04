@@ -41,6 +41,8 @@
     "ngrx",
     "Serializability",
     "sidenav",
+    "signin",
+    "signout",
     "signup",
     "titlecase",
     "userid"
