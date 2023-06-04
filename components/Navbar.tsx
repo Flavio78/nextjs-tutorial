@@ -27,7 +27,7 @@ const Navbar = () => {
               href="/api/auth/signin"
               onClick={(e) => {
                 e.preventDefault();
-                signIn('github');
+                signIn('github', { redirect: false });
               }}
             >
               Sign In
@@ -40,7 +40,7 @@ const Navbar = () => {
               href="/api/auth/signout"
               onClick={(e) => {
                 e.preventDefault();
-                signOut();
+                signOut({ redirect: false });
               }}
             >
               Sign Out
