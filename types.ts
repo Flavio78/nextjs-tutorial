@@ -1,3 +1,5 @@
+import { Session } from 'next-auth';
+
 export type Users = User[];
 
 export type User = {
@@ -86,4 +88,10 @@ export type CommentBody = {
 
 export type Comment = CommentBody & {
   id: number;
+};
+
+export type AuthSessionResponse = {
+  message?: 'Success';
+  error?: 'Unauthenticated user';
+  session?: Session;
 };

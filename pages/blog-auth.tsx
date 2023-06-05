@@ -19,10 +19,19 @@ export const getServerSideProps: GetServerSideProps<BlogAuthProps> = async (
   context: GetServerSidePropsContext
 ) => {
   const session = await getSession(context);
-  return {
-    props: {
-      session,
-      data: session ? 'List of 100 personalized blogs' : 'List of free blogs',
-    },
-  };
+  if (!session) {
+    return {
+      redirect: {
+        destination: `/api/auth/signin?callbackUrl=http://localhost:3000/blog-auth`,
+        permanent: false,
+      },
+    };
+  } else {
+    return {
+      props: {
+        session,
+        data: session ? 'List of 100 personalized blogs' : 'List of free blogs',
+      },
+    };
+  }
 };
