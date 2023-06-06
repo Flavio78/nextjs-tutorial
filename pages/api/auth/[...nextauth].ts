@@ -15,6 +15,20 @@ const options: NextAuthOptions = {
     strategy: 'jwt',
   },
   secret: 'aRlQxUr_12wH!g54?hq4t1z',
+  callbacks: {
+    jwt: async ({ token, user }) => {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    session: async ({ session, token, user }) => {
+      if (session?.user) {
+        session.user.id = token.id;
+      }
+      return session;
+    },
+  },
 };
 
 export default NextAuth(options);
