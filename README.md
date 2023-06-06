@@ -16,7 +16,7 @@ $ npx create-next-app
 ? What import alias would you like configured? » @/*
 ```
 
-Code from YouTube tutorial [Codevolution](https://www.youtube.com/watch?v=Ql5kyJaYbls&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&index=7)
+Code along to YouTube tutorial playlist [Codevolution](https://www.youtube.com/playlist?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH)
 
 ## Getting Started
 
