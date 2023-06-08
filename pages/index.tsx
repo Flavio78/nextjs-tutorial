@@ -9,7 +9,6 @@ const Home = () => {
     <div>
       <Link href="/users">Users</Link>
       <Link href="/posts">Posts</Link>
-      <Link href="/dashboard-swr">Dashboard</Link>
       <Link href="/comments">Comments</Link>
       <Link href="/contact">Contact</Link>
       <Link href="/about">About</Link>
